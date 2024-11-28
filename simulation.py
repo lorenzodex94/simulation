@@ -5,6 +5,12 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import datetime
 
+# Get today's date
+today = datetime.date.today()
+yesterday = today - datetime.timedelta(days=1)
+
+
+
 # Title of the Streamlit app
 st.title(" DESSI - Stock Price Simulation with GBM")
 
@@ -15,7 +21,7 @@ stock_symbol = st.selectbox(
 )
 
 # Fetch historical data for the selected stock
-googl_hist = yf.download(stock_symbol, start='2023-01-01', end='2024-11-27')
+googl_hist = yf.download(stock_symbol, start='2023-01-01', end=yesterday)
 
 # Calculate daily returns
 googl_hist['Return'] = googl_hist['Close'].pct_change().dropna()
