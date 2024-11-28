@@ -15,7 +15,7 @@ stock_symbol = st.selectbox(
 )
 
 # Fetch historical data for the selected stock
-googl_hist = yf.download(stock_symbol, start='2023-01-01', end='2024-11-01')
+googl_hist = yf.download(stock_symbol, start='2023-01-01', end='2024-11-27')
 
 # Calculate daily returns
 googl_hist['Return'] = googl_hist['Close'].pct_change().dropna()
@@ -57,7 +57,7 @@ last_trading_date = googl_hist.index[-1]
 future_dates = pd.date_range(last_trading_date, periods=N, freq='B')  # Business days for the simulated data
 
 # Plot the actual price and all simulated prices
-plt.figure(figsize=(10, 10))
+plt.figure(figsize=(10, 5))
 plt.plot(googl_hist.index, googl_hist['Close'], color='blue', label='Actual Closing Prices')  # Actual closing prices
 
 # Plot all simulated paths starting from the last actual price
