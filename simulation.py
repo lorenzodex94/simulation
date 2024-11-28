@@ -11,7 +11,7 @@ st.title(" Trial Stock Price Simulation with GBM")
 # Stock selection (user can choose the stock)
 stock_symbol = st.selectbox(
     "Select a stock symbol",
-    ('GOOGL', 'AAPL', 'MSFT', 'META', 'NVDA')  # You can add more symbols if needed
+    ('RACE.MI','GOOGL', 'AAPL', 'MSFT', 'META', 'NVDA')  # You can add more symbols if needed
 )
 
 # Fetch historical data for the selected stock
