@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import datetime
 
 # Title of the Streamlit app
-st.title(" Trial Stock Price Simulation with GBM")
+st.title(" DESSI - Stock Price Simulation with GBM")
 
 # Stock selection (user can choose the stock)
 stock_symbol = st.selectbox(
