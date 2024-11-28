@@ -9,8 +9,6 @@ import datetime
 today = datetime.date.today()
 yesterday = today - datetime.timedelta(days=1)
 
-
-
 # Title of the Streamlit app
 st.title(" DESSI - Stock Price Simulation with GBM")
 
@@ -21,7 +19,18 @@ stock_symbol = st.selectbox(
 )
 
 # Fetch historical data for the selected stock
-googl_hist = yf.download(stock_symbol, start='2024-01-01', end=yesterday)
+try:
+    with st.spinner("Fetching stock data..."):
+        googl_hist = yf.download(stock_symbol, start='2024-01-01', end=yesterday)
+        if googl_hist.empty:
+            st.error("No data found for the selected stock symbol.")
+            st.stop()
+except Exception as e:
+    st.error(f"An error occurred: {e}")
+    st.stop()
+
+# Fetch historical data for the selected stock
+#googl_hist = yf.download(stock_symbol, start='2024-01-01', end=yesterday)
 
 # Calculate daily returns
 googl_hist['Return'] = googl_hist['Close'].pct_change().dropna()
