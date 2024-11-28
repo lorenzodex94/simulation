@@ -35,11 +35,11 @@ sigma = returns.std() * (252 ** 0.5)  # Annualize the standard deviation
 S0 = googl_hist['Close'].iloc[-1]
 
 # Define simulation parameters
-T = (datetime.datetime(2025, 12, 31) - googl_hist.index[-1]).days / 365  # Total simulation time (in years)
+T = (datetime.datetime(2025, 1, 31) - googl_hist.index[-1]).days / 365  # Total simulation time (in years)
 N = int(T * 252)  # Number of time steps (252 trading days in a year)
 
 # Allow the user to choose the number of simulated paths
-num_paths = st.slider("Select number of simulation paths", min_value=1, max_value=100, value=5)
+num_paths = st.slider("Select number of simulation paths", min_value=1, max_value=50, value=5)
 
 # Function to simulate multiple GBM paths
 def simulate_gbm_multiple_paths(S0, mu, sigma, T, N, num_paths):
