@@ -21,7 +21,7 @@ stock_symbol = st.selectbox(
 )
 
 # Fetch historical data for the selected stock
-googl_hist = yf.download(stock_symbol, start='2023-01-01', end=yesterday)
+googl_hist = yf.download(stock_symbol, start='2024-01-01', end=yesterday)
 
 # Calculate daily returns
 googl_hist['Return'] = googl_hist['Close'].pct_change().dropna()
