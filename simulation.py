@@ -35,7 +35,7 @@ sigma = returns.std() * (252 ** 0.5)  # Annualize the standard deviation
 S0 = googl_hist['Close'].iloc[-1]
 
 # Define simulation parameters
-T = (datetime.datetime(2025, 1, 31) - googl_hist.index[-1]).days / 365  # Total simulation time (in years)
+T = (datetime.datetime(2025, 12, 31) - googl_hist.index[-1]).days / 365  # Total simulation time (in years)
 N = int(T * 252)  # Number of time steps (252 trading days in a year)
 
 # Allow the user to choose the number of simulated paths
