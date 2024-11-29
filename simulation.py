@@ -145,7 +145,7 @@ data['Sell_Signal'] = np.where(y > upper_bound, 1, 0)  # Sell when price is abov
 
 # Plotting
 plt.figure(figsize=(12, 6))
-plt.title('Polynomial Regression  Data with Buy and Sell Signals')
+plt.title(f'Polynomial Regression {stock_symbol} Data with Buy and Sell Signals')
 
 # Plot price data
 plt.plot(data['Date'], y, color='blue', label='Actual Closing Price')
