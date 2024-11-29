@@ -26,7 +26,7 @@ stock_symbol = st.selectbox(
 )
 
 # Fetch historical data for the selected stock
-googl_hist = yf.download(stock_symbol, start='2024-01-01', end=yesterday)
+googl_hist = yf.download(stock_symbol, start='2020-01-01', end=yesterday)
 
 # Calculate daily returns
 googl_hist['Return'] = googl_hist['Close'].pct_change().dropna()
@@ -40,7 +40,7 @@ sigma = returns.std() * (252 ** 0.5)  # Annualize the standard deviation
 S0 = googl_hist['Close'].iloc[-1]
 
 # Define simulation parameters
-T = (datetime.datetime(2025, 12, 31) - googl_hist.index[-1]).days / 365  # Total simulation time (in years)
+T = (datetime.datetime(2025, 6, 1) - googl_hist.index[-1]).days / 365  # Total simulation time (in years)
 N = int(T * 252)  # Number of time steps (252 trading days in a year)
 
 # Allow the user to choose the number of simulated paths
@@ -103,7 +103,7 @@ def get_clean_financial_data(stock_symbol, start_date, end_date):
     return data
 
 # Fetch historical stock data for DIA (Dow Jones Industrial Average ETF)
-data = get_clean_financial_data(stock_symbol, '2024-01-01', yesterday)
+data = get_clean_financial_data(stock_symbol, '2020-01-01', yesterday)
 
 # Use the 'Close' price as the target variable
 data = data.reset_index()
