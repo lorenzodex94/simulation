@@ -76,7 +76,7 @@ for i in range(num_paths):
     plt.plot(future_dates, simulated_paths[:, i], alpha=0.7, label='Simulated Price' if i == 0 else "")
 
 plt.axhline(y=actual_final_price, color='red', linestyle='--', label='Actual Price')  # Actual price line
-plt.title(f"Simulated Stock Prices for {stock_symbol} (Starting from Last Trading Date) - update {yesterday}")
+plt.title(f"Simulated Stock Prices for {stock_symbol} (Starting from Last Trading Date) - up {yesterday}")
 plt.xlabel("Date")
 plt.ylabel("Price")
 plt.legend()
