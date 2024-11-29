@@ -68,7 +68,7 @@ last_trading_date = googl_hist.index[-1]
 future_dates = pd.date_range(last_trading_date, periods=N, freq='B')  # Business days for the simulated data
 
 # Plot the actual price and all simulated prices
-plt.figure(figsize=(10, 5))
+plt.figure(figsize=(12, 6))
 plt.plot(googl_hist.index, googl_hist['Close'], color='blue', label='Actual Closing Prices')  # Actual closing prices
 
 # Plot all simulated paths starting from the last actual price
@@ -170,13 +170,6 @@ plt.tight_layout()
 plt.grid(True)
 plt.show()
 st.pyplot(plt)
-
-
-
-
-
-
-
 
 
 
