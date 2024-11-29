@@ -76,7 +76,7 @@ for i in range(num_paths):
     plt.plot(future_dates, simulated_paths[:, i], alpha=0.7, label='Simulated Price' if i == 0 else "")
 
 plt.axhline(y=actual_final_price, color='red', linestyle='--', label='Actual Price')  # Actual price line
-plt.title(f"Simulated Stock Prices for {stock_symbol} (Starting from Last Trading Date)")
+plt.title(f"Simulated Stock Prices for {stock_symbol} (Starting from Last Trading Date) - update {yesterday}")
 plt.xlabel("Date")
 plt.ylabel("Price")
 plt.legend()
@@ -145,7 +145,7 @@ data['Sell_Signal'] = np.where(y > upper_bound, 1, 0)  # Sell when price is abov
 
 # Plotting
 plt.figure(figsize=(12, 6))
-plt.title(f'Polynomial Regression {stock_symbol} Data with Buy and Sell Signals')
+plt.title(f'Polynomial Regression {stock_symbol} Data with Buy and Sell Signals - update {yesterday}')
 
 # Plot price data
 plt.plot(data['Date'], y, color='blue', label='Actual Closing Price')
@@ -176,7 +176,7 @@ st.pyplot(plt)
 # Create a second plot for the distribution of daily returns
 plt.figure(figsize=(10, 5))
 plt.hist(returns, bins=30, color='orange', alpha=0.7, edgecolor='black')
-plt.title(f"Distribution of Daily Returns for {stock_symbol}")
+plt.title(f"Distribution of Daily Returns for {stock_symbol} - update {yesterday}")
 plt.xlabel("Daily Returns")
 plt.ylabel("Frequency")
 plt.grid()
