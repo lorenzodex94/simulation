@@ -2,3 +2,5 @@ matplotlib==3.5.3
 numpy==1.26.0
 pandas==2.2.3
 yfinance==0.2.40
+pip install scikit-learn
+scikit-learn
