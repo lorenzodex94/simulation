@@ -22,7 +22,7 @@ st.title(" DESSI - Stock Price Simulation with GBM")
 # Stock selection (user can choose the stock)
 stock_symbol = st.selectbox(
     "Select a stock symbol",
-    ('RACE.MI','GOOGL', 'AAPL', 'MSFT', 'META', 'NVDA')  # You can add more symbols if needed
+    ('RACE.MI','GOOGL', 'AAPL', 'MSFT', 'META', 'NVDA', 'SPY', 'TSLA', 'AMZN','XLC')  # You can add more symbols if needed
 )
 
 # Fetch historical data for the selected stock
@@ -103,7 +103,7 @@ def get_clean_financial_data(stock_symbol, start_date, end_date):
     return data
 
 # Fetch historical stock data for DIA (Dow Jones Industrial Average ETF)
-data = get_clean_financial_data(stock_symbol, '2020-01-01', yesterday)
+data = get_clean_financial_data(stock_symbol, '2024-01-01', yesterday)
 
 # Use the 'Close' price as the target variable
 data = data.reset_index()
