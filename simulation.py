@@ -79,7 +79,14 @@ st.pyplot(plt)  # Display the plot in Streamlit
 #################################################################################################################################################
 
 
-
+# Create a second plot for the distribution of daily returns
+plt.figure(figsize=(10, 5))
+plt.hist(returns, bins=30, color='orange', alpha=0.7, edgecolor='black')
+plt.title(f"Distribution of Daily Returns for {stock_symbol}")
+plt.xlabel("Daily Returns")
+plt.ylabel("Frequency")
+plt.grid()
+st.pyplot(plt)  # Display the second plot in Streamlit
 
 
 
