@@ -11,8 +11,6 @@ from sklearn.pipeline import make_pipeline
 from sklearn.metrics import mean_squared_error
 import ollama
 
-
-
 # Get today's date
 today = datetime.date.today()
 yesterday = today - datetime.timedelta(days=1)
@@ -172,8 +170,6 @@ plt.grid(True)
 plt.show()
 st.pyplot(plt)
 
-
-
 # Create a second plot for the distribution of daily returns
 plt.figure(figsize=(10, 5))
 plt.hist(returns, bins=30, color='orange', alpha=0.7, edgecolor='black')
@@ -182,46 +178,6 @@ plt.xlabel("Daily Returns")
 plt.ylabel("Frequency")
 plt.grid()
 st.pyplot(plt)  # Display the second plot in Streamlit
-
-
-##################################
-
-# Function to generate natural language insights using Ollama
-def get_natural_language_insights(ticker):
-    
-    prompt = f"""
-    You are a professional stock broker. You're looking at {ticker} timehistory
-    Based on this data, provide insights into the current stock trend and the general market sentiment.
-    The insights should not be longer than 100 words and should not have an introduction.
-    """
-    response = ollama.chat(
-            model="llama3",
-            messages=[{"role": "user", "content": prompt}]
-        )
-    response_text = response['message']['content'].strip()
-    message = st.chat_message("assistant")
-    message.write(timestamp)
-    message.write(response_text)
-    print("Natural Language Insight:", response_text)
-
-message = st.chat_message("assistant")
-message.write("Starting real-time simulation for  stock updates.")   
-
-# Streamlit UI
-st.title("Stock Insights with LLaMA")
-st.write("Ask about a stock ticker to get insights.")
-
-# Input box for the stock ticker
-ticker = st.text_input("Enter stock ticker (e.g., AAPL, TSLA):")
-
-if st.button("Get Insights"):
-    if ticker:
-        with st.spinner("Generating insights..."):
-            insights = get_natural_language_insights(ticker)
-            st.chat_message("assistant").write(insights)
-    else:
-        st.error("Please enter a valid stock ticker.")
-
 
 
 
