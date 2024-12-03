@@ -207,7 +207,20 @@ def get_natural_language_insights(ticker):
 message = st.chat_message("assistant")
 message.write("Starting real-time simulation for  stock updates.")   
 
+# Streamlit UI
+st.title("Stock Insights with LLaMA")
+st.write("Ask about a stock ticker to get insights.")
 
+# Input box for the stock ticker
+ticker = st.text_input("Enter stock ticker (e.g., AAPL, TSLA):")
+
+if st.button("Get Insights"):
+    if ticker:
+        with st.spinner("Generating insights..."):
+            insights = get_natural_language_insights(ticker)
+            st.chat_message("assistant").write(insights)
+    else:
+        st.error("Please enter a valid stock ticker.")
 
 
 
