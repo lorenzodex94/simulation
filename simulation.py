@@ -183,7 +183,27 @@ plt.grid()
 st.pyplot(plt)  # Display the second plot in Streamlit
 
 
+##################################
 
+# Function to generate natural language insights using Ollama
+def get_natural_language_insights(ticker
+    
+
+):
+    prompt = f"""
+    You are a professional stock broker. You're looking at {stock} timehistory
+    Based on this data, provide insights into the current stock trend and the general market sentiment.
+    The insights should not be longer than 100 words and should not have an introduction.
+    """
+    response = ollama.chat(
+            model="llama3",
+            messages=[{"role": "user", "content": prompt}]
+        )
+    response_text = response['message']['content'].strip()
+    message = st.chat_message("assistant")
+    message.write(timestamp)
+    message.write(response_text)
+    print("Natural Language Insight:", response_text)
 
 
 
