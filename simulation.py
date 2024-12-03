@@ -191,7 +191,7 @@ def get_natural_language_insights(ticker
 
 ):
     prompt = f"""
-    You are a professional stock broker. You're looking at {stock} timehistory
+    You are a professional stock broker. You're looking at {ticker} timehistory
     Based on this data, provide insights into the current stock trend and the general market sentiment.
     The insights should not be longer than 100 words and should not have an introduction.
     """
