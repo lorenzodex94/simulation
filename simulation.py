@@ -205,8 +205,8 @@ def get_natural_language_insights(ticker
     message.write(response_text)
     print("Natural Language Insight:", response_text)
 
-
-
+message = st.chat_message("assistant")
+message.write("Starting real-time simulation for  stock updates.")   
 
 
 
