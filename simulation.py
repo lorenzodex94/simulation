@@ -186,10 +186,8 @@ st.pyplot(plt)  # Display the second plot in Streamlit
 ##################################
 
 # Function to generate natural language insights using Ollama
-def get_natural_language_insights(ticker
+def get_natural_language_insights(ticker):
     
-
-):
     prompt = f"""
     You are a professional stock broker. You're looking at {ticker} timehistory
     Based on this data, provide insights into the current stock trend and the general market sentiment.
